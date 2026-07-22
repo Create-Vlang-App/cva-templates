@@ -53,6 +53,25 @@ def _has_readme(path: Path) -> bool:
     return (path / "README.md").is_file()
 
 
+REQUIRED_TEMPLATE_DOCS = ("PROJECT_STRUCTURE.md", "TESTING.md")
+
+
+def _has_required_docs(path: Path) -> list[str]:
+    """Return missing required docs paths relative to the template root."""
+    missing: list[str] = []
+    docs = path / "docs"
+    if not docs.is_dir():
+        return ["docs/", *[f"docs/{name}" for name in REQUIRED_TEMPLATE_DOCS]]
+    for name in REQUIRED_TEMPLATE_DOCS:
+        if not (docs / name).is_file():
+            missing.append(f"docs/{name}")
+    return missing
+
+
+def _has_extension_template_dir(path: Path) -> bool:
+    return (path / "template").is_dir()
+
+
 def validate_on_disk(registry: dict) -> list[str]:
     errors: list[str] = []
     seen_template_names: set[str] = set()
@@ -79,6 +98,8 @@ def validate_on_disk(registry: dict) -> list[str]:
             errors.append(f"template {name}: missing *_test.v")
         if not _has_readme(path):
             errors.append(f"template {name}: missing README.md")
+        for missing_doc in _has_required_docs(path):
+            errors.append(f"template {name}: missing {missing_doc}")
 
     for addon in registry.get("addons", []):
         name = addon.get("name", "")
@@ -97,6 +118,11 @@ def validate_on_disk(registry: dict) -> list[str]:
             continue
         if not _has_readme(path):
             errors.append(f"addon {name}: missing README.md")
+        if not _has_extension_template_dir(path):
+            errors.append(
+                f"addon {name}: missing template/ overlay directory "
+                "(extensions must use extensions/<slug>/template/)"
+            )
 
     return errors
 
