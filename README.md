@@ -23,9 +23,11 @@ Compose a base template with optional overlays — one command, any V stack.
 
 ## Quick start
 
-Install the CLI from the [latest Release](https://github.com/Create-Vlang-App/create-vlang-app/releases/tag/create-vlang-app%400.1.0) (linux amd64 asset), or build from source, then scaffold:
+Install the CLI, then scaffold:
 
 ```bash
+curl -fsSL https://create-awesome-vlang-app.vercel.app/install.sh | sh
+
 create-vlang-app my-app \
   --template web-server \
   --addons github-setup
