@@ -1,15 +1,17 @@
 # vsl-starter
 
-Scientific computing starter. Add `v install vsl` then import vsl modules for linear algebra, stats, and ML helpers.
+Minimal [vlang/vsl](https://github.com/vlang/vsl) app scaffolded by create-vlang-app.
 
-## Run
-
-```bash
-v run src/main.v
-```
-
-## Test
+## Setup
 
 ```bash
+v install vsl
+v run .
 v test .
 ```
+
+## What you get
+
+- `v.mod` with a real `vsl` dependency
+- A tiny `vsl.la` matrix example (`matrix_trace`)
+- Unit test covering the helper

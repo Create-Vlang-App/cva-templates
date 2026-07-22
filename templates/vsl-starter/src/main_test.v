@@ -1,5 +1,5 @@
 module main
 
-fn test_mean_helper() {
-	assert mean([2.0, 4.0]) == 3.0
+fn test_matrix_trace() {
+	assert matrix_trace() == 3.0
 }

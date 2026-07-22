@@ -1,5 +1,6 @@
 {
-  "name": "systems-app",
-  "template": "systems-app",
+  "id": "systems-app-github",
+  "description": "Systems app with GitHub CI and fmt/vet",
+  "templateDir": "systems-app",
   "addons": ["github-setup", "v-fmt-vet"]
 }

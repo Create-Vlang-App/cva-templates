@@ -35,6 +35,10 @@
             "type": "string",
             "minLength": 1
           },
+          "details": {
+            "type": "string",
+            "minLength": 1
+          },
           "labels": {
             "type": "array",
             "items": {

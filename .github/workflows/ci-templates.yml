@@ -67,15 +67,13 @@ jobs:
       - name: Install CI helpers
         run: pip install -r scripts/ci/requirements.txt
 
-      - name: Clone create-vlang-app (until VPM publish — #24)
-        run: git clone --depth 1 https://github.com/Create-Vlang-App/create-vlang-app.git /tmp/create-vlang-app
+      - name: Install published create-vlang-app CLI
+        run: bash scripts/ci/install-cva-cli.sh
 
       - name: Scaffold check (template alone)
         env:
           CI: "true"
           CVA_SKIP_GIT: "1"
-          CVA_CI_ALLOW_GIT_CLI: "1"
-          CVA_CI_CLI_SOURCE: /tmp/create-vlang-app
         run: |
           python scripts/ci/run-scaffold-check.py \
             --template-url "${{ matrix.cell.templateUrl }}" \
