@@ -57,7 +57,15 @@ REQUIRED_TEMPLATE_DOCS = ("PROJECT_STRUCTURE.md", "TESTING.md")
 
 # M1 quality bar — expand after each template uplift (see docs/TEMPLATE_QUALITY_M1.md).
 # Starts empty; Fase 2 adds "web-server", then remaining templates in Fase 3.
-M1_QUALITY_ALLOWLIST: frozenset[str] = frozenset()
+M1_QUALITY_ALLOWLIST: frozenset[str] = frozenset({
+    "web-server",
+    "cli-app",
+    "systems-app",
+    "library-starter",
+    "vsl-starter",
+    "vtl-starter",
+    "rxv-starter",
+})
 
 M1_ROOT_FILES = (
     "README.md",

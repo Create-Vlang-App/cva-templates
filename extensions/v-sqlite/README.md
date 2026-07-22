@@ -12,3 +12,9 @@ Compatible with templates: `web-server`, `cli-app`, `systems-app`.
 ## Layout
 
 Overlay files live under `template/` and are merged onto the selected base template. This README stays at the extension root.
+
+## Verify after scaffold
+
+```bash
+v test .
+```

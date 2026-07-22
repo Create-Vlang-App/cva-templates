@@ -13,3 +13,7 @@ v test .
 ```bash
 v run examples/example.v
 ```
+
+## Quality
+
+See [QUALITY.md](QUALITY.md).

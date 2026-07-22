@@ -4,13 +4,18 @@
 .
 ├── main.v
 ├── main_test.v
-├── checksum/          # feature module
+├── checksum/
 │   ├── checksum.v
 │   └── checksum_test.v
-├── BUILD.md           # compiler / GC notes
+├── _module_template/
+├── BUILD.md
+├── AGENTS.md
+├── CONTRIBUTING.md
+├── .env.example
+├── QUALITY.md
 ├── v.mod
 ├── README.md
 └── docs/
 ```
 
-Feature modules are top-level V packages (see `checksum/`). See [BUILD.md](../BUILD.md) for `-gc none` and related flags.
+Feature modules live at the project root (`import checksum` → `checksum/`).

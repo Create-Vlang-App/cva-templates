@@ -1,5 +1,7 @@
 module main
 
-fn test_hello_value() {
-	assert hello_value() == 'Hello, rxv!'
+import pipeline
+
+fn test_hello_via_pipeline() {
+	assert pipeline.hello_value() == 'Hello, rxv!'
 }
