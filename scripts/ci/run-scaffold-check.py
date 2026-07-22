@@ -160,6 +160,9 @@ def main() -> None:
 
     assert_non_empty_project(project_root)
     run("deps", ["v", "install"], cwd=project_root)
+    norm = REPO_ROOT / "scripts" / "ci" / "normalize-vmodules.sh"
+    if norm.is_file():
+        run("normalize-vmodules", ["bash", str(norm)])
     run("fmt", ["v", "fmt", "."], cwd=project_root)
     run("vet", ["v", "vet", "."], cwd=project_root)
     if not args.skip_test:

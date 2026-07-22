@@ -52,6 +52,7 @@ jobs:
               cd "$dir"
               if grep -E "dependencies: \[[^]]+" v.mod | grep -vq '\[\]'; then
                 v install
+                bash "${{ github.workspace }}/scripts/ci/normalize-vmodules.sh"
               fi
               v test .
             )
