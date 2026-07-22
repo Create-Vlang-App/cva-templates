@@ -1,0 +1,6 @@
+{
+  "id": "vtl-starter-github",
+  "description": "Tensor starter with GitHub CI (CPU-only)",
+  "templateDir": "vtl-starter",
+  "addons": ["github-setup"]
+}

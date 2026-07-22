@@ -1,0 +1,6 @@
+{
+  "id": "rxv-starter-github",
+  "description": "Reactive starter with GitHub CI",
+  "templateDir": "rxv-starter",
+  "addons": ["github-setup"]
+}

@@ -1,0 +1,6 @@
+{
+  "id": "web-server-docker",
+  "description": "Web server containerized with docker extension",
+  "templateDir": "web-server",
+  "addons": ["v-docker", "github-setup"]
+}
