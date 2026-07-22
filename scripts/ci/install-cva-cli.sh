@@ -8,31 +8,33 @@ DEST="${CVA_CLI_INSTALL_DIR:-${RUNNER_TEMP:-/tmp}/cva-cli-bin}"
 URL="https://github.com/Create-Vlang-App/create-vlang-app/releases/download/${TAG}/${ASSET}"
 
 mkdir -p "$DEST"
+
+add_to_path() {
+  export PATH="${DEST}:${PATH}"
+  if [[ -n "${GITHUB_PATH:-}" ]]; then
+    echo "${DEST}" >> "${GITHUB_PATH}"
+  fi
+}
+
 echo "▶ [cva-cli] fetching ${URL}"
 if curl -fsSL "$URL" -o "${DEST}/create-vlang-app"; then
   chmod +x "${DEST}/create-vlang-app"
-  echo "${DEST}" >> "${GITHUB_PATH:-/dev/null}"
-  export PATH="${DEST}:${PATH}"
+  add_to_path
   create-vlang-app --version
   echo "✅ [cva-cli] installed from GitHub Release ${TAG}"
   exit 0
 fi
 
-echo "⚠ [cva-cli] release asset unavailable; trying v install --git" >&2
-if v install --git https://github.com/Create-Vlang-App/create-vlang-app 2>/dev/null; then
-  if command -v create-vlang-app >/dev/null 2>&1; then
-    create-vlang-app --version
-    echo "✅ [cva-cli] installed via v install --git"
-    exit 0
-  fi
-fi
-
-if [[ "${CVA_CI_ALLOW_GIT_CLI:-0}" == "1" ]]; then
-  echo "⚠ [cva-cli] emergency git clone (CVA_CI_ALLOW_GIT_CLI=1)" >&2
-  git clone --depth 1 https://github.com/Create-Vlang-App/create-vlang-app.git /tmp/create-vlang-app
-  echo "CVA_CI_CLI_SOURCE=/tmp/create-vlang-app" >> "${GITHUB_ENV:-/dev/null}"
-  exit 0
-fi
-
-echo "❌ [cva-cli] could not install published CLI; set CVA_CI_ALLOW_GIT_CLI=1 for emergency clone" >&2
-exit 1
+echo "⚠ [cva-cli] release asset unavailable; building from git clone" >&2
+CLONE="${RUNNER_TEMP:-/tmp}/create-vlang-app-src"
+rm -rf "$CLONE"
+git clone --depth 1 https://github.com/Create-Vlang-App/create-vlang-app.git "$CLONE"
+(
+  cd "$CLONE"
+  make build
+)
+cp "${CLONE}/create-vlang-app" "${DEST}/create-vlang-app"
+chmod +x "${DEST}/create-vlang-app"
+add_to_path
+create-vlang-app --version
+echo "✅ [cva-cli] built from git main (interim until Release assets are stable)"
