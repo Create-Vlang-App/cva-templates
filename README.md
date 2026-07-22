@@ -12,6 +12,7 @@ Compose a base template with optional overlays — one command, any V stack.
 [![CI Profiles](https://github.com/Create-Vlang-App/cva-templates/actions/workflows/ci-profiles.yml/badge.svg)](https://github.com/Create-Vlang-App/cva-templates/actions/workflows/ci-profiles.yml)
 [![V](https://img.shields.io/badge/V-0.5%2B-4B6EAF?style=flat-square)](https://vlang.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+[![Discord](https://img.shields.io/discord/1527933660764831825?style=flat-square&label=Discord&logo=discord&logoColor=white)](https://discord.gg/dwFTsR7fK2)
 
 [CLI](https://github.com/Create-Vlang-App/create-vlang-app) · [Website](https://github.com/Create-Vlang-App/website) · [Contributing](CONTRIBUTING.md) · [Authoring](docs/AUTHORING.md)
 
