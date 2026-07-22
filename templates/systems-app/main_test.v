@@ -1,5 +1,7 @@
 module main
 
+import checksum
+
 fn test_checksum() {
-	assert checksum('ab'.bytes()) == u64(97 + 98)
+	assert checksum.of_bytes('ab'.bytes()) == u64(97 + 98)
 }

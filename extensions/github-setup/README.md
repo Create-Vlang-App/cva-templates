@@ -9,3 +9,7 @@ Adds GitHub Actions CI using [vlang/setup-v](https://github.com/vlang/setup-v).
 ## Inputs
 
 Uses `stable: true` and action cache. Pin a compiler version with a `v.version` file in your project root.
+
+## Layout
+
+Overlay files live under `template/` and are merged onto the selected base template. This README stays at the extension root.
