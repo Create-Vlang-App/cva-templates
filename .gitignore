@@ -1,0 +1,10 @@
+*.o
+*.d
+*.tmp
+*.db
+.vscode/
+.idea/
+.ci-scaffold/
+__pycache__/
+*.pyc
+.DS_Store
