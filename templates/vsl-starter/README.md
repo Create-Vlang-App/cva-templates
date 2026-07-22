@@ -15,3 +15,9 @@ v test .
 - `v.mod` with a real `vsl` dependency
 - A tiny `vsl.la` matrix example (`matrix_trace`)
 - Unit test covering the helper
+
+## Domain catalog
+
+This is the **Scientific Computing Starter (vsl)** base. Add capabilities via CVA addons
+(see `docs/DOMAIN_AUTHORING.md` in cva-templates). Do not treat vsl/vtl as mutually exclusive —
+compose `vtl-vsl-bridge` when you need both.

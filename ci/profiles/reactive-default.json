@@ -1,0 +1,9 @@
+{
+  "id": "reactive-default",
+  "description": "Reactive starter + operators",
+  "templateDir": "rxv-starter",
+  "addons": [
+    "github-setup",
+    "rxv-operators"
+  ]
+}

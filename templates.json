@@ -44,19 +44,31 @@
     {
       "slug": "scientific",
       "name": "Scientific",
-      "description": "Scientific computing and tensors (vsl/vtl).",
-      "details": "Growth starters depending on vlang/vsl and vlang/vtl.",
+      "description": "Scientific computing starters (vsl-backed).",
+      "details": "Numerics, stats, geometry, and plotting via addons on vsl-starter.",
       "labels": [
         "scientific",
         "vsl",
-        "vtl"
+        "numerics"
+      ]
+    },
+    {
+      "slug": "machine-learning",
+      "name": "Machine Learning",
+      "description": "Tensor and ML starters (vtl-backed).",
+      "details": "Autograd and NN via addons; compose vtl-vsl-bridge for plotting/GPU bridges.",
+      "labels": [
+        "machine-learning",
+        "vtl",
+        "tensors",
+        "nn"
       ]
     },
     {
       "slug": "reactive",
       "name": "Reactive",
-      "description": "Reactive extensions (rxv).",
-      "details": "Observable pipelines using ulises-jeremias/rxv.",
+      "description": "Reactive application starters (rxv-backed).",
+      "details": "Observable pipelines; deepen with rxv-operators addon.",
       "labels": [
         "reactive",
         "rxv"
@@ -140,35 +152,38 @@
     },
     {
       "name": "vsl-starter",
-      "description": "Scientific computing starter using vsl",
+      "description": "Scientific Computing Starter (vsl) \u2014 numerics topology; add plotting/ML via addons",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=templates/vsl-starter",
       "kind": "template",
       "tags": [
         "scientific",
         "growth",
-        "vsl"
+        "vsl",
+        "domain"
       ]
     },
     {
       "name": "vtl-starter",
-      "description": "Tensor starter using vtl (depends on vsl)",
+      "description": "ML / Tensor Starter (vtl) \u2014 tensor topology; add NN/bridge via addons",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=templates/vtl-starter",
       "kind": "template",
       "tags": [
-        "scientific",
+        "machine-learning",
         "growth",
-        "vtl"
+        "vtl",
+        "domain"
       ]
     },
     {
       "name": "rxv-starter",
-      "description": "Reactive extensions library starter inspired by rxv",
+      "description": "Reactive App Starter (rxv) \u2014 observable topology; add operators via addons",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=templates/rxv-starter",
       "kind": "template",
       "tags": [
         "reactive",
         "growth",
-        "rxv"
+        "rxv",
+        "domain"
       ]
     }
   ],
@@ -247,6 +262,80 @@
       "tags": [
         "devcontainer",
         "wave-1"
+      ]
+    },
+    {
+      "name": "vsl-plotting",
+      "description": "vsl.plot wiring and scatter helper for scientific starters (no GUI in unit tests)",
+      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/vsl-plotting",
+      "kind": "addon",
+      "tags": [
+        "scientific",
+        "plot",
+        "vsl",
+        "domain"
+      ],
+      "compatibleWith": [
+        "vsl-starter"
+      ]
+    },
+    {
+      "name": "vsl-classical-ml",
+      "description": "Classical ML smoke (linear regression style) on vsl-starter",
+      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/vsl-classical-ml",
+      "kind": "addon",
+      "tags": [
+        "scientific",
+        "ml",
+        "vsl",
+        "domain"
+      ],
+      "compatibleWith": [
+        "vsl-starter"
+      ]
+    },
+    {
+      "name": "vtl-nn-cpu",
+      "description": "Tiny CPU neural-net training loop for vtl-starter (CI-safe)",
+      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/vtl-nn-cpu",
+      "kind": "addon",
+      "tags": [
+        "machine-learning",
+        "nn",
+        "vtl",
+        "domain"
+      ],
+      "compatibleWith": [
+        "vtl-starter"
+      ]
+    },
+    {
+      "name": "vtl-vsl-bridge",
+      "description": "Bridge VTL tensors to vsl.plot (compose vsl+vtl without a combined base)",
+      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/vtl-vsl-bridge",
+      "kind": "addon",
+      "tags": [
+        "machine-learning",
+        "scientific",
+        "bridge",
+        "domain"
+      ],
+      "compatibleWith": [
+        "vtl-starter"
+      ]
+    },
+    {
+      "name": "rxv-operators",
+      "description": "Reactive operator chain (filter/map/reduce) beyond hello-world rxv",
+      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/rxv-operators",
+      "kind": "addon",
+      "tags": [
+        "reactive",
+        "rxv",
+        "domain"
+      ],
+      "compatibleWith": [
+        "rxv-starter"
       ]
     }
   ]

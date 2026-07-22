@@ -1,0 +1,9 @@
+{
+  "id": "ml-cpu-default",
+  "description": "ML/tensor starter + tiny NN CPU addon",
+  "templateDir": "vtl-starter",
+  "addons": [
+    "github-setup",
+    "vtl-nn-cpu"
+  ]
+}
