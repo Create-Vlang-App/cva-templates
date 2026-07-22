@@ -1,32 +1,98 @@
 {
   "categories": [
     {
-      "slug": "wave-1",
-      "name": "Wave 1",
-      "description": "Core application templates and infrastructure extensions.",
+      "slug": "web",
+      "name": "Web",
+      "description": "HTTP servers and web-facing V apps.",
+      "details": "veb/vweb starters and related HTTP tooling.",
       "labels": [
         "web",
-        "cli",
-        "library",
-        "systems",
-        "ci",
-        "docker",
-        "database"
-      ],
-      "details": "Core application templates and infrastructure extensions."
+        "http",
+        "veb"
+      ]
     },
     {
-      "slug": "growth",
-      "name": "Growth",
-      "description": "Scientific and reactive starters (vsl, vtl, rxv).",
+      "slug": "cli",
+      "name": "CLI",
+      "description": "Command-line applications.",
+      "details": "Flag parsing, subcommands, and operator-friendly CLIs.",
+      "labels": [
+        "cli",
+        "tooling"
+      ]
+    },
+    {
+      "slug": "library",
+      "name": "Library",
+      "description": "Publishable V modules and libraries.",
+      "details": "v.mod-first packages with tests and examples.",
+      "labels": [
+        "library",
+        "vpm"
+      ]
+    },
+    {
+      "slug": "systems",
+      "name": "Systems",
+      "description": "Systems-oriented and low-level starters.",
+      "details": "GC guidance, checksums, and systems utilities.",
+      "labels": [
+        "systems",
+        "low-level"
+      ]
+    },
+    {
+      "slug": "scientific",
+      "name": "Scientific",
+      "description": "Scientific computing and tensors (vsl/vtl).",
+      "details": "Growth starters depending on vlang/vsl and vlang/vtl.",
       "labels": [
         "scientific",
-        "reactive",
         "vsl",
-        "vtl",
+        "vtl"
+      ]
+    },
+    {
+      "slug": "reactive",
+      "name": "Reactive",
+      "description": "Reactive extensions (rxv).",
+      "details": "Observable pipelines using ulises-jeremias/rxv.",
+      "labels": [
+        "reactive",
         "rxv"
-      ],
-      "details": "Scientific and reactive starters (vsl, vtl, rxv)."
+      ]
+    },
+    {
+      "slug": "ci",
+      "name": "CI & tooling",
+      "description": "GitHub Actions, fmt/vet, and quality gates.",
+      "details": "Cross-cutting extensions for CI and local quality.",
+      "labels": [
+        "ci",
+        "github",
+        "fmt"
+      ]
+    },
+    {
+      "slug": "containers",
+      "name": "Containers",
+      "description": "Docker and development containers.",
+      "details": "Dockerfile, compose, and .devcontainer overlays.",
+      "labels": [
+        "docker",
+        "devcontainer"
+      ]
+    },
+    {
+      "slug": "database",
+      "name": "Database",
+      "description": "SQLite and Postgres wiring.",
+      "details": "Env samples and compose overlays for data stores.",
+      "labels": [
+        "database",
+        "sqlite",
+        "postgres"
+      ]
     }
   ],
   "templates": [
