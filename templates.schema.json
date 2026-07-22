@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Create-Vlang-App/cva-templates/templates.schema.json",
+  "title": "CVA Templates Index Schema",
+  "description": "Catalog schema for Create-Vlang-App (templates.json). Compatible with create-vlang-app-core catalog loader.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["templates", "addons"],
+  "properties": {
+    "categories": {
+      "type": "array",
+      "description": "Optional discovery categories for wave grouping.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["slug", "name", "description", "labels"],
+        "properties": {
+          "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "string", "minLength": 1 },
+          "description": { "type": "string", "minLength": 1 },
+          "labels": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "templates": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/entry" }
+    },
+    "addons": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/entry" }
+    }
+  },
+  "definitions": {
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "description", "url"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Slug used by --template / --addons"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1,
+          "description": "GitHub URL with ?subdir= path, file:// URL, or git URL"
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["template", "addon"]
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "compatibleWith": {
+          "type": "array",
+          "description": "Template slugs this addon supports (empty = all).",
+          "items": { "type": "string" }
+        },
+        "incompatibleWith": {
+          "type": "array",
+          "description": "Addon slugs that cannot be combined with this addon.",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}
