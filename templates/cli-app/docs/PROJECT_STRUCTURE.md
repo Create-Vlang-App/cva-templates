@@ -2,16 +2,19 @@
 
 ```text
 .
-├── main.v           # cli Command wiring
+├── main.v
 ├── main_test.v
-├── greet/           # feature module
+├── greet/
 │   ├── greet.v
 │   └── greet_test.v
+├── _module_template/
+├── AGENTS.md
+├── CONTRIBUTING.md
+├── .env.example
+├── QUALITY.md
 ├── v.mod
 ├── README.md
 └── docs/
 ```
 
-## Feature modules
-
-Add new commands as V modules next to `greet/` (folder name = module name), then wire flags in `main.v`. Nested `src/features/<name>/` is not used because V imports require a top-level module directory.
+Feature modules live at the project root (`import greet` → `greet/`).

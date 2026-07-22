@@ -1,12 +1,11 @@
 # cli-app
 
-CLI starter using V `cli` and `os` modules.
+CLI starter using V `cli` + `os`, with a `greet/` feature module.
 
 ## Run
 
 ```bash
-v run . --name Alice
-v run . --help
+v run . -- --name world
 ```
 
 ## Test
@@ -14,3 +13,7 @@ v run . --help
 ```bash
 v test .
 ```
+
+## Docs
+
+See [docs/README.md](docs/README.md). Quality bar: [QUALITY.md](QUALITY.md).

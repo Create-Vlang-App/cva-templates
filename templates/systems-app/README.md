@@ -16,3 +16,7 @@ See [BUILD.md](BUILD.md) for compiler flags.
 ```bash
 v test .
 ```
+
+## Quality
+
+See [QUALITY.md](QUALITY.md).

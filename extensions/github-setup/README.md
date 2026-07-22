@@ -13,3 +13,12 @@ Uses `stable: true` and action cache. Pin a compiler version with a `v.version` 
 ## Layout
 
 Overlay files live under `template/` and are merged onto the selected base template. This README stays at the extension root.
+
+## Verify after scaffold
+
+```bash
+test -f .github/workflows/ci.yml
+v fmt -w .
+v vet .
+v test .
+```

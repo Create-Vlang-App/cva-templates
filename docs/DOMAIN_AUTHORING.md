@@ -57,3 +57,7 @@ GPU (`cuda`/`vulkan`) addons are documented later and stay out of default L3.
 
 Long-tail demos live in `docs/recipes/DOMAIN_RECIPES.md` with links to upstream
 `examples/` in vlang/vsl, vlang/vtl, and ulises-jeremias/rxv.
+
+## Named modules (required)
+
+Domain addon overlays must ship **named modules** (for example `template/plotting/`) rather than flat `template/src/*.v` with `module main`. This avoids merge collisions when composing multiple addons.

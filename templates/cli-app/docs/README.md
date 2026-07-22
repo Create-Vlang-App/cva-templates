@@ -3,5 +3,6 @@
 | Doc | Contents |
 |-----|----------|
 | [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) | Layout and feature modules |
+| [CONFIGURATION.md](CONFIGURATION.md) | CLI flags |
 | [TESTING.md](TESTING.md) | `v test` / vet |
-| [CONFIGURATION.md](CONFIGURATION.md) | Flags and defaults |
+| [DEPLOYMENT.md](DEPLOYMENT.md) | Binary release notes |
