@@ -1,0 +1,8 @@
+// Copy patterns into your app — load SQLITE_PATH from environment.
+module main
+
+import os
+
+pub fn sqlite_path() string {
+	return os.getenv('SQLITE_PATH') or { './data/app.db' }
+}

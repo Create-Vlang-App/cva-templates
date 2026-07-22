@@ -1,0 +1,12 @@
+{
+  "name": "V Devcontainer",
+  "image": "ghcr.io/vlang/vlang:latest",
+  "features": {},
+  "postCreateCommand": "v version",
+  "customizations": {
+    "vscode": {
+      "extensions": ["vlang-vscode.vscode-vlang"]
+    }
+  },
+  "remoteUser": "root"
+}
