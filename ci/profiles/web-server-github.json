@@ -1,0 +1,6 @@
+{
+  "id": "web-server-github",
+  "description": "Web server with GitHub Actions CI",
+  "templateDir": "web-server",
+  "addons": ["github-setup"]
+}

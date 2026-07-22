@@ -1,0 +1,6 @@
+{
+  "id": "cli-app-github",
+  "description": "CLI app with GitHub Actions CI",
+  "templateDir": "cli-app",
+  "addons": ["github-setup"]
+}

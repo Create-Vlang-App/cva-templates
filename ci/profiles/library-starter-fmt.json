@@ -1,0 +1,6 @@
+{
+  "id": "library-starter-fmt",
+  "description": "Library starter with fmt/vet hooks",
+  "templateDir": "library-starter",
+  "addons": ["v-fmt-vet"]
+}

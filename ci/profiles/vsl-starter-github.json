@@ -1,0 +1,6 @@
+{
+  "id": "vsl-starter-github",
+  "description": "Scientific starter with GitHub CI (CPU-only)",
+  "templateDir": "vsl-starter",
+  "addons": ["github-setup"]
+}
