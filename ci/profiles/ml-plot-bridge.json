@@ -1,0 +1,9 @@
+{
+  "id": "ml-plot-bridge",
+  "description": "VTL starter with VSL plot bridge (compose both libs)",
+  "templateDir": "vtl-starter",
+  "addons": [
+    "github-setup",
+    "vtl-vsl-bridge"
+  ]
+}

@@ -148,3 +148,8 @@ Run `python scripts/ci/generate-matrix.py --layer validate-profiles` before push
 - Scaffold check passes when CLI is available (L1+)
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) for merge and URL conventions.
+
+
+## Domain catalog (scientific / ML / reactive)
+
+See [DOMAIN_AUTHORING.md](./DOMAIN_AUTHORING.md).

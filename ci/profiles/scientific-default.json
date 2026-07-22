@@ -1,0 +1,9 @@
+{
+  "id": "scientific-default",
+  "description": "Scientific starter + plotting (CPU-only)",
+  "templateDir": "vsl-starter",
+  "addons": [
+    "github-setup",
+    "vsl-plotting"
+  ]
+}

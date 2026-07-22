@@ -90,3 +90,8 @@ Addons may declare:
 - [TESTING.md](TESTING.md) — local verification
 - [AUTHORING.md](AUTHORING.md) — contributing new entries
 - [MAINTENANCE_CI.md](MAINTENANCE_CI.md) — triage when CI fails
+
+
+## Domain catalog
+
+Scientific/ML/reactive growth follows [DOMAIN_AUTHORING.md](./DOMAIN_AUTHORING.md).
