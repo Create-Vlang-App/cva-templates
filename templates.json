@@ -4,13 +4,29 @@
       "slug": "wave-1",
       "name": "Wave 1",
       "description": "Core application templates and infrastructure extensions.",
-      "labels": ["web", "cli", "library", "systems", "ci", "docker", "database"]
+      "labels": [
+        "web",
+        "cli",
+        "library",
+        "systems",
+        "ci",
+        "docker",
+        "database"
+      ],
+      "details": "Core application templates and infrastructure extensions."
     },
     {
       "slug": "growth",
       "name": "Growth",
       "description": "Scientific and reactive starters (vsl, vtl, rxv).",
-      "labels": ["scientific", "reactive", "vsl", "vtl", "rxv"]
+      "labels": [
+        "scientific",
+        "reactive",
+        "vsl",
+        "vtl",
+        "rxv"
+      ],
+      "details": "Scientific and reactive starters (vsl, vtl, rxv)."
     }
   ],
   "templates": [
@@ -19,49 +35,75 @@
       "description": "HTTP server starter using veb",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=templates/web-server",
       "kind": "template",
-      "tags": ["web", "wave-1", "veb"]
+      "tags": [
+        "web",
+        "wave-1",
+        "veb"
+      ]
     },
     {
       "name": "cli-app",
       "description": "CLI application using os and cli modules",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=templates/cli-app",
       "kind": "template",
-      "tags": ["cli", "wave-1"]
+      "tags": [
+        "cli",
+        "wave-1"
+      ]
     },
     {
       "name": "library-starter",
       "description": "Publishable V library with examples and tests",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=templates/library-starter",
       "kind": "template",
-      "tags": ["library", "wave-1"]
+      "tags": [
+        "library",
+        "wave-1"
+      ]
     },
     {
       "name": "systems-app",
       "description": "Low-level systems-oriented starter with GC guidance",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=templates/systems-app",
       "kind": "template",
-      "tags": ["systems", "wave-1", "no-gc"]
+      "tags": [
+        "systems",
+        "wave-1",
+        "no-gc"
+      ]
     },
     {
       "name": "vsl-starter",
       "description": "Scientific computing starter using vsl",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=templates/vsl-starter",
       "kind": "template",
-      "tags": ["scientific", "growth", "vsl"]
+      "tags": [
+        "scientific",
+        "growth",
+        "vsl"
+      ]
     },
     {
       "name": "vtl-starter",
       "description": "Tensor starter using vtl (depends on vsl)",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=templates/vtl-starter",
       "kind": "template",
-      "tags": ["scientific", "growth", "vtl"]
+      "tags": [
+        "scientific",
+        "growth",
+        "vtl"
+      ]
     },
     {
       "name": "rxv-starter",
       "description": "Reactive extensions library starter inspired by rxv",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=templates/rxv-starter",
       "kind": "template",
-      "tags": ["reactive", "growth", "rxv"]
+      "tags": [
+        "reactive",
+        "growth",
+        "rxv"
+      ]
     }
   ],
   "addons": [
@@ -70,44 +112,76 @@
       "description": "GitHub Actions CI using vlang/setup-v",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/github-setup",
       "kind": "addon",
-      "tags": ["ci", "wave-1", "github"]
+      "tags": [
+        "ci",
+        "wave-1",
+        "github"
+      ]
     },
     {
       "name": "v-docker",
       "description": "Dockerfile and docker-compose for V apps",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/v-docker",
       "kind": "addon",
-      "tags": ["docker", "wave-1", "deploy"]
+      "tags": [
+        "docker",
+        "wave-1",
+        "deploy"
+      ]
     },
     {
       "name": "v-sqlite",
       "description": "SQLite environment and sample wiring",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/v-sqlite",
       "kind": "addon",
-      "tags": ["database", "wave-1", "sqlite"],
-      "compatibleWith": ["web-server", "cli-app", "systems-app"]
+      "tags": [
+        "database",
+        "wave-1",
+        "sqlite"
+      ],
+      "compatibleWith": [
+        "web-server",
+        "cli-app",
+        "systems-app"
+      ]
     },
     {
       "name": "v-postgres",
       "description": "Postgres compose overlay and environment sample",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/v-postgres",
       "kind": "addon",
-      "tags": ["database", "wave-1", "postgres"],
-      "compatibleWith": ["web-server", "cli-app", "systems-app"]
+      "tags": [
+        "database",
+        "wave-1",
+        "postgres"
+      ],
+      "compatibleWith": [
+        "web-server",
+        "cli-app",
+        "systems-app"
+      ]
     },
     {
       "name": "v-fmt-vet",
       "description": "Format and vet hooks (pre-commit + Makefile targets)",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/v-fmt-vet",
       "kind": "addon",
-      "tags": ["tooling", "wave-1", "fmt", "vet"]
+      "tags": [
+        "tooling",
+        "wave-1",
+        "fmt",
+        "vet"
+      ]
     },
     {
       "name": "development-container",
       "description": "Devcontainer with V toolchain via setup-v patterns",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/development-container",
       "kind": "addon",
-      "tags": ["devcontainer", "wave-1"]
+      "tags": [
+        "devcontainer",
+        "wave-1"
+      ]
     }
   ]
 }
