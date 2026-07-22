@@ -1,0 +1,14 @@
+repos:
+  - repo: local
+    hooks:
+      - id: v-fmt
+        name: v fmt
+        entry: v fmt
+        language: system
+        types: [v]
+        pass_filenames: false
+      - id: v-vet
+        name: v vet
+        entry: v vet .
+        language: system
+        pass_filenames: false
