@@ -1,0 +1,3 @@
+module mylib
+
+subdirs: ['src']
