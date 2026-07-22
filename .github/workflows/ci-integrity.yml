@@ -45,7 +45,14 @@ jobs:
 
       - name: v test all templates
         run: |
+          set -euo pipefail
           for dir in templates/*/; do
             echo "Testing $dir"
-            (cd "$dir" && v test .)
+            (
+              cd "$dir"
+              if grep -E "dependencies: \[[^]]+" v.mod | grep -vq '\[\]'; then
+                v install
+              fi
+              v test .
+            )
           done

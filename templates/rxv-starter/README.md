@@ -1,8 +1,17 @@
 # rxv-starter
 
-Reactive-style library layout inspired by [rxv](https://github.com/ulises-jeremias/rxv). Demonstrates observables and map operators without external deps in the bare template.
+Minimal [rxv](https://github.com/ulises-jeremias/rxv) reactive starter.
+
+## Setup
 
 ```bash
+v install https://github.com/ulises-jeremias/rxv
+v run .
 v test .
-v run src/main.v
 ```
+
+## What you get
+
+- `v.mod` depending on the published rxv git module
+- A `rxv.just` hello-world main
+- Unit test for the helper string

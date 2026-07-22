@@ -1,6 +1,12 @@
 module main
 
+import vtl
+
+fn tensor_size() int {
+	t := vtl.from_1d([1, 2, 3]) or { panic(err) }
+	return t.size
+}
+
 fn main() {
-	// Tensor demo placeholder — add vtl + vsl deps for real tensor ops.
-	println('vtl-starter: add v install vtl && v install vsl')
+	println('vtl tensor size=${tensor_size()}')
 }

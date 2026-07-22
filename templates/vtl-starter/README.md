@@ -1,9 +1,17 @@
 # vtl-starter
 
-Tensor starter scaffold. Depends on [vsl](https://github.com/vlang/vsl) and [vtl](https://github.com/vlang/vtl).
+Minimal [vlang/vtl](https://github.com/vlang/vtl) app (depends on VSL transitively).
+
+## Setup
 
 ```bash
-v install vsl
 v install vtl
+v run .
 v test .
 ```
+
+## What you get
+
+- `v.mod` with a real `vtl` dependency
+- A tiny `vtl.from_1d` tensor size helper
+- Unit test covering the helper

@@ -1,7 +1,17 @@
 module main
 
+import ulises_jeremias.rxv
+
+fn hello_value() string {
+	return 'Hello, rxv!'
+}
+
 fn main() {
-	src := Observable{values: [1, 2, 3]}
-	doubled := map_values(src.values, fn (v int) int { return v * 2 })
-	println('sum=${src.sum()} doubled=${doubled}')
+	mut obs := rxv.just[string](hello_value())
+	done := obs.for_each(fn (v string) {
+		println(v)
+	}, fn (e IError) {
+		eprintln('error: ${e}')
+	}, fn () {})
+	_ = <-done
 }

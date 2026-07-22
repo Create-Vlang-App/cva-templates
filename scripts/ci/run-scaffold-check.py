@@ -62,9 +62,19 @@ def assert_template_url_exists(template_url: str) -> None:
 
 
 def resolve_cli_invocation() -> tuple[Path | None, list[str], str]:
-    """Return optional cwd, argv prefix, and mode description."""
+    """Return optional cwd, argv prefix, and mode description.
+
+    Prefer a published binary on PATH (see scripts/ci/install-cva-cli.sh).
+    Git/path fallback requires CVA_CI_ALLOW_GIT_CLI=1.
+    """
     if shutil.which(CLI_BIN):
         return None, [CLI_BIN], "PATH"
+
+    if os.environ.get("CVA_CI_ALLOW_GIT_CLI") != "1":
+        fail(
+            "scaffold",
+            "create-vlang-app not on PATH; install release binary or set CVA_CI_ALLOW_GIT_CLI=1",
+        )
 
     cli_source = os.environ.get("CVA_CI_CLI_SOURCE", DEFAULT_CLI_GIT)
     repo_root: Path | None = None
@@ -126,11 +136,6 @@ def main() -> None:
 
     cli_cwd, cli_cmd, mode = resolve_cli_invocation()
     print(f"ℹ [scaffold] CLI resolved via {mode}")
-    if mode.startswith("v-run:") and os.environ.get("CVA_CI_ALLOW_GIT_CLI") != "1":
-        print(
-            "WARN: using git/path CLI install — set CVA_CI_ALLOW_GIT_CLI=1 until VPM publish (#24)",
-            file=sys.stderr,
-        )
 
     scaffold_cmd = [
         *cli_cmd,
@@ -154,6 +159,7 @@ def main() -> None:
         fail("scaffold", f"expected project at {project_root}")
 
     assert_non_empty_project(project_root)
+    run("deps", ["v", "install"], cwd=project_root)
     run("fmt", ["v", "fmt", "."], cwd=project_root)
     run("vet", ["v", "vet", "."], cwd=project_root)
     if not args.skip_test:

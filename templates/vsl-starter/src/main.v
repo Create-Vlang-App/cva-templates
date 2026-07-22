@@ -1,17 +1,14 @@
 module main
 
-fn mean(values []f64) f64 {
-	if values.len == 0 {
-		return 0.0
-	}
-	mut sum := 0.0
-	for v in values {
-		sum += v
-	}
-	return sum / f64(values.len)
+import vsl.la
+
+fn matrix_trace() f64 {
+	mut a := la.Matrix.new[f64](2, 2)
+	a.set(0, 0, 1.0)
+	a.set(1, 1, 2.0)
+	return a.get(0, 0) + a.get(1, 1)
 }
 
 fn main() {
-	println('mean=${mean([1.0, 2.0, 3.0])}')
-	println('Add vsl with: v install vsl')
+	println('vsl matrix trace=${matrix_trace()}')
 }
