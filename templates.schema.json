@@ -5,7 +5,10 @@
   "description": "Catalog schema for Create-Vlang-App (templates.json). Compatible with create-vlang-app-core catalog loader.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["templates", "addons"],
+  "required": [
+    "templates",
+    "addons"
+  ],
   "properties": {
     "categories": {
       "type": "array",
@@ -13,14 +16,30 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["slug", "name", "description", "labels"],
+        "required": [
+          "slug",
+          "name",
+          "description",
+          "labels"
+        ],
         "properties": {
-          "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-          "name": { "type": "string", "minLength": 1 },
-          "description": { "type": "string", "minLength": 1 },
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
           "labels": {
             "type": "array",
-            "items": { "type": "string" },
+            "items": {
+              "type": "string"
+            },
             "minItems": 1
           }
         }
@@ -28,18 +47,26 @@
     },
     "templates": {
       "type": "array",
-      "items": { "$ref": "#/definitions/entry" }
+      "items": {
+        "$ref": "#/definitions/entry"
+      }
     },
     "addons": {
       "type": "array",
-      "items": { "$ref": "#/definitions/entry" }
+      "items": {
+        "$ref": "#/definitions/entry"
+      }
     }
   },
   "definitions": {
     "entry": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name", "description", "url"],
+      "required": [
+        "name",
+        "description",
+        "url"
+      ],
       "properties": {
         "name": {
           "type": "string",
@@ -57,22 +84,31 @@
         },
         "kind": {
           "type": "string",
-          "enum": ["template", "addon"]
+          "enum": [
+            "template",
+            "addon"
+          ]
         },
         "tags": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "uniqueItems": true
         },
         "compatibleWith": {
           "type": "array",
           "description": "Template slugs this addon supports (empty = all).",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         },
         "incompatibleWith": {
           "type": "array",
           "description": "Addon slugs that cannot be combined with this addon.",
-          "items": { "type": "string" }
+          "items": {
+            "type": "string"
+          }
         }
       }
     }

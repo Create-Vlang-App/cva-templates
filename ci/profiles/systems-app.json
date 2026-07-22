@@ -1,0 +1,5 @@
+{
+  "name": "systems-app",
+  "template": "systems-app",
+  "addons": ["github-setup", "v-fmt-vet"]
+}
