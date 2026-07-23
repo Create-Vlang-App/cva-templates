@@ -13,7 +13,7 @@ Compose a base template with optional overlays — one command, any V stack.
 [![V](https://img.shields.io/badge/V-0.5%2B-4B6EAF?style=flat-square)](https://vlang.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Website](https://img.shields.io/badge/site-create--awesome--vlang--app.vercel.app-8B5CF6?style=flat-square)](https://create-awesome-vlang-app.vercel.app)
-[![Discord](https://img.shields.io/discord/1527933660764831825?style=flat-square&label=Discord&logo=discord&logoColor=white)](https://discord.gg/dwFTsR7fK2)
+[![Discord](https://img.shields.io/discord/1527933660764831825?style=flat-square&label=Discord&logo=discord&logoColor=white)](https://discord.gg/bR5VyATgka)
 
 [Official Site](https://create-awesome-vlang-app.vercel.app) · [Catalog](https://create-awesome-vlang-app.vercel.app/templates) · [CLI](https://github.com/Create-Vlang-App/create-vlang-app) · [Contributing](CONTRIBUTING.md) · [Authoring](docs/AUTHORING.md)
 
