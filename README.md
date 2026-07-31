@@ -23,6 +23,8 @@ Compose a base template with optional overlays — one command, any V stack.
 
 ## Quick start
 
+> **Inicio rápido en español:** instala la CLI con el comando siguiente, explora las plantillas en el [sitio oficial](https://create-awesome-vlang-app.vercel.app) y únete a la [comunidad de Discord](https://discord.gg/bR5VyATgka) si necesitas ayuda.
+
 Install the CLI, then scaffold:
 
 ```bash
