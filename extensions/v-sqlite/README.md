@@ -1,13 +1,13 @@
 # v-sqlite
 
-SQLite environment sample for web-server and cli templates.
+SQLite environment sample for web-server, cli and library templates.
 
 ## Files
 
 - `.env.example` — `SQLITE_PATH` variable
 - `config.v.example` — helper to read the path in V code
 
-Compatible with templates: `web-server`, `cli-app`, `systems-app`.
+Compatible with templates: `web-server`, `cli-app`, `systems-app`, `library-starter`.
 
 ## Layout
 

@@ -1,0 +1,6 @@
+{
+  "id": "scientific-extra",
+  "description": "Scientific starter with classical ML, plotting and GitHub CI (covers vsl-classical-ml + vsl-plotting)",
+  "templateDir": "vsl-starter",
+  "addons": ["github-setup", "vsl-classical-ml", "vsl-plotting"]
+}
