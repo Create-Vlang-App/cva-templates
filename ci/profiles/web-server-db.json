@@ -1,0 +1,6 @@
+{
+  "id": "web-server-db",
+  "description": "Web server with Postgres, Docker and GitHub CI (covers v-postgres+v-docker merge)",
+  "templateDir": "web-server",
+  "addons": ["github-setup", "v-postgres", "v-docker"]
+}

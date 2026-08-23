@@ -1,0 +1,6 @@
+{
+  "id": "library-db",
+  "description": "Library starter with SQLite, fmt/vet and devcontainer (covers v-sqlite + development-container)",
+  "templateDir": "library-starter",
+  "addons": ["v-sqlite", "v-fmt-vet", "development-container"]
+}

@@ -223,7 +223,8 @@
       "compatibleWith": [
         "web-server",
         "cli-app",
-        "systems-app"
+        "systems-app",
+        "library-starter"
       ]
     },
     {
