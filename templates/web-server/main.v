@@ -1,5 +1,6 @@
 module main
 
+import os
 import veb
 import health
 
@@ -22,5 +23,6 @@ pub fn (app &App) health(mut ctx Context) veb.Result {
 
 fn main() {
 	mut app := &App{}
-	veb.run[App, Context](mut app, 8080)
+	port := os.getenv_opt('PORT') or { '8080' }.int()
+	veb.run[App, Context](mut app, port)
 }
