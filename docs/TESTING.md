@@ -27,10 +27,10 @@ Extensions are overlays — validate file presence and syntax:
 
 ```bash
 # GitHub workflow YAML
-python -c "import yaml,sys; yaml.safe_load(open('extensions/github-setup/.github/workflows/ci.yml'))"
+python -c "import yaml,sys; yaml.safe_load(open('extensions/github-setup/template/.github/workflows/ci.yml'))"
 
 # Devcontainer JSON
-python -c "import json; json.load(open('extensions/development-container/.devcontainer/devcontainer.json'))"
+python -c "import json; json.load(open('extensions/development-container/template/.devcontainer/devcontainer.json'))"
 ```
 
 ## Catalog integrity (L0)
