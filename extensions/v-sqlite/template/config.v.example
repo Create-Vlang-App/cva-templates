@@ -4,5 +4,5 @@ module main
 import os
 
 pub fn sqlite_path() string {
-	return os.getenv('SQLITE_PATH') or { './data/app.db' }
+	return os.getenv_opt('SQLITE_PATH') or { './data/app.db' }
 }
