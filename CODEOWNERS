@@ -1,1 +1,15 @@
+# CODEOWNERS for cva-templates
+# Default owner for everything
 * @ulises-jeremias
+
+# Templates and addons are the core assets
+/templates/** @ulises-jeremias
+/extensions/** @ulises-jeremias
+
+# CI and scaffolding scripts
+/scripts/ci/** @ulises-jeremias
+/ci/** @ulises-jeremias
+
+# Governance and docs
+/.github/** @ulises-jeremias
+/docs/** @ulises-jeremias
