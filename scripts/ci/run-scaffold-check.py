@@ -163,7 +163,7 @@ def main() -> None:
     norm = REPO_ROOT / "scripts" / "ci" / "normalize-vmodules.sh"
     if norm.is_file():
         run("normalize-vmodules", ["bash", str(norm)])
-    run("fmt", ["v", "fmt", "."], cwd=project_root)
+    run("fmt", ["v", "fmt", "-verify", "."], cwd=project_root)
     run("vet", ["v", "vet", "."], cwd=project_root)
     if not args.skip_test:
         run("test", ["v", "test", "."], cwd=project_root)
