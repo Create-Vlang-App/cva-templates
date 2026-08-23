@@ -35,10 +35,11 @@ Optional guides for users belong under `extensions/<slug>/template/docs/` (for e
 
 ### Overlay `.append` semantics
 
-When the overlay includes `docs/README.md.append` (or other `*.append` files), the CLI
-**appends** that content to the existing file in the scaffolded project instead of
-overwriting it. Prefer `.append` for docs indexes so wave-1 and domain addons do not
-clobber the base `docs/README.md`.
+When the overlay includes `*.append` files (for example `docs/README.md.append`,
+`.env.example.append`), the CLI **appends** that content to the existing file in the
+scaffolded project instead of overwriting it. Prefer `.append` for docs indexes and
+environment samples so wave-1 and domain addons do not clobber the base
+`docs/README.md` or `.env.example`.
 
 ### `incompatibleWith`
 
