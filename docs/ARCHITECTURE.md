@@ -1,5 +1,72 @@
 # Architecture
 
+## Overview
+
+```mermaid
+flowchart TB
+    subgraph User["User Interaction"]
+        CLI["create-vlang-app\n--template &lt;slug&gt; --addons &lt;ext&gt;"]
+    end
+
+    subgraph Registry["Template Registry"]
+        JSON["templates.json\n(templates, addons)"]
+        Schema["templates.schema.json\n(JSON Schema)"]
+    end
+
+    subgraph Resolution["Resolution"]
+        Resolve["Resolve slugs → URLs\n?subdir=templates/&lt;slug&gt;\n?subdir=extensions/&lt;slug&gt;"]
+        Fetch["Fetch content\nfile:// or GitHub clone\n~/.cache/cva"]
+        CopyRoot["get_template_dir_path\ntemplate/ if exists\nelse root (legacy)"]
+    end
+
+    subgraph Merge["Merge Semantics"]
+        Template["Base Template\ntemplates/&lt;slug&gt;/\n(v.mod, main.v, docs/)"]
+        Ext1["Extension 1\n extensions/&lt;slug&gt;/template/"]
+        Ext2["Extension 2\n extensions/&lt;slug&gt;/template/"]
+        Merged["Merged Project\nCopy-only + .append + v.mod merge\n(later layers override)"]
+    end
+
+    subgraph Result["Generated Output"]
+        Project["~/my-app\n(v.mod, main.v, greet/, *_test.v, docs/)"]
+        Git["git init\n(skipped if CVA_SKIP_GIT=1)"]
+        Check["v fmt / v vet / v test\n(skipped with --no-install)"]
+    end
+
+    subgraph CI["Layered CI Flow (L0-L3)"]
+        L0["L0 Integrity\nci-integrity.yml\nvalidate-registry.py"]
+        L1["L1 Templates\nci-templates.yml\nscaffold + v test"]
+        L2["L2 Extensions\nci-extensions.yml\ntemplate × addon"]
+        L3["L3 Profiles\nci-profiles.yml\nci/profiles/*.json"]
+    end
+
+    CLI --> JSON
+    JSON --> Resolve
+    Resolve --> Fetch
+    Fetch --> CopyRoot
+    CopyRoot --> Template
+    Template --> Ext1
+    Ext1 --> Ext2
+    Ext2 --> Merged
+    Merged --> Project
+    Project --> Git
+    Project --> Check
+    Project -. validates .-> L0
+    Project -. validates .-> L1
+    Project -. validates .-> L2
+    Project -. validates .-> L3
+
+    style CLI fill:#e1f5fe
+    style JSON fill:#f3e5f5
+    style Merged fill:#e8f5e9
+    style Project fill:#fff3e0
+    style Git fill:#ffe0b2
+    style Check fill:#ffe0b2
+    style L0 fill:#fce4ec
+    style L1 fill:#f3e5f5
+    style L2 fill:#e8f5e9
+    style L3 fill:#fff3e0
+```
+
 This repository is the **template bank** for [create-vlang-app](https://github.com/Create-Vlang-App/create-vlang-app). It mirrors the CNA/CPA split: a CLI engine plus a catalog-backed content repo.
 
 ## Components

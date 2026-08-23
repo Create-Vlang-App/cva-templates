@@ -117,12 +117,20 @@ Details: [docs/TESTING.md](./docs/TESTING.md), [docs/CI_PUBLISHED_CLI.md](./docs
 
 | File | Contents |
 |------|----------|
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | Bank layout, template vs extension, merge model |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | Bank layout, template vs extension, merge model (mermaid diagram) |
 | [docs/AUTHORING.md](./docs/AUTHORING.md) | Adding templates and extensions |
+| [docs/AUTHORING.es.md](./docs/AUTHORING.es.md) | Guía de creación (traducción ES) |
 | [docs/DOMAIN_AUTHORING.md](./docs/DOMAIN_AUTHORING.md) | vsl / vtl / rxv domain addons |
+| [docs/recipes/DOMAIN_RECIPES.md](./docs/recipes/DOMAIN_RECIPES.md) | Upstream vsl / vtl / rxv example galleries |
 | [docs/TESTING.md](./docs/TESTING.md) | Local testing and CI layers |
+| [docs/CI_PUBLISHED_CLI.md](./docs/CI_PUBLISHED_CLI.md) | Published CLI install (Release → git build fallback) |
+| [docs/TEMPLATE_QUALITY_M1.md](./docs/TEMPLATE_QUALITY_M1.md) | M1 quality bar for base templates |
 | [docs/MAINTENANCE_RUNBOOK.md](./docs/MAINTENANCE_RUNBOOK.md) | Operator runbook |
+| [docs/MAINTENANCE_CI.md](./docs/MAINTENANCE_CI.md) | CI layer maintenance |
+| [docs/MAINTENANCE_SECURITY.md](./docs/MAINTENANCE_SECURITY.md) | Security policy |
+| [docs/MAINTENANCE_TEMPLATES.md](./docs/MAINTENANCE_TEMPLATES.md) | Template quality & slug stability |
 | [CONTRIBUTING.md](./CONTRIBUTING.md) | Contribution guide |
+| [CONTRIBUTING.es.md](./CONTRIBUTING.es.md) | Guía de contribución (ES) |
 
 ## Related repositories
 
