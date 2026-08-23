@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 General Question
+    url: https://github.com/Create-Vlang-App/create-vlang-app/discussions/categories/q-a
+    about: Please ask and answer questions as a discussion thread
