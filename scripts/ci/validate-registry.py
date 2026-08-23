@@ -210,6 +210,20 @@ def validate_on_disk(registry: dict) -> list[str]:
     return errors
 
 
+def validate_compatible_with(registry: dict) -> list[str]:
+    """Fail if any addon.compatibleWith references an unknown template slug (fixes #83)."""
+    errors: list[str] = []
+    template_names = {t.get("name") for t in registry.get("templates", []) if t.get("name")}
+    for addon in registry.get("addons", []):
+        name = addon.get("name", "")
+        for slug in addon.get("compatibleWith") or []:
+            if slug not in template_names:
+                errors.append(
+                    f'addon {name}: compatibleWith references unknown template "{slug}"'
+                )
+    return errors
+
+
 def validate_profiles(registry: dict) -> list[str]:
     errors: list[str] = []
     for profile in load_profiles():
@@ -222,7 +236,12 @@ def validate_profiles(registry: dict) -> list[str]:
 
 def main() -> None:
     registry = load_registry()
-    errors = validate_schema() + validate_on_disk(registry) + validate_profiles(registry)
+    errors = (
+        validate_schema()
+        + validate_on_disk(registry)
+        + validate_compatible_with(registry)
+        + validate_profiles(registry)
+    )
     if errors:
         print("Registry validation failed:", file=sys.stderr)
         for err in errors:
