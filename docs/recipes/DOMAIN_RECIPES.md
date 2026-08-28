@@ -43,3 +43,45 @@ Upstream: https://github.com/ulises-jeremias/rxv/tree/master/examples
 ## Combining vsl + vtl
 
 Prefer addon `vtl-vsl-bridge` on `vtl-starter` rather than a combined base template.
+
+## Quick recipes (copy-paste)
+
+Three starter recipes for common combinations. Each shows the exact
+`create-vlang-app` command and the expected verification step.
+
+### Web server + Docker
+
+```bash
+create-vlang-app my-webapp \
+  --template web-server \
+  --addons docker \
+  --no-interactive
+cd my-webapp
+make verify   # expected: fmt check, vet, tests, and docker build all pass
+```
+
+### Scientific computing + plotting (vsl)
+
+```bash
+create-vlang-app my-science \
+  --template vsl-starter \
+  --addons vtl-vsl-bridge \
+  --no-interactive
+cd my-science
+make verify   # expected: vsl/vtl examples compile and the plot example runs
+```
+
+### Reactive streams (rxv operators)
+
+```bash
+create-vlang-app my-rx \
+  --template rxv-starter \
+  --addons github-setup \
+  --no-interactive
+cd my-rx
+make verify   # expected: rxv operator examples (filter/transform/combine) pass
+```
+
+If a recipe does not verify cleanly, open an issue in
+[`cva-templates`](https://github.com/Create-Vlang-App/cva-templates) with the
+error output.
