@@ -205,6 +205,33 @@ Add `ci/profiles/<id>.json`:
 }
 ```
 
+### Worked example: web-server + v-postgres + github-setup
+
+A profile combines one template with any number of addons. For a web server
+with a Postgres-backed addon and GitHub CI, create
+`ci/profiles/web-server-postgres.json`:
+
+```json
+{
+  "id": "web-server-postgres",
+  "description": "Web server with Postgres and GitHub CI",
+  "templateDir": "web-server",
+  "addons": ["v-postgres", "github-setup"]
+}
+```
+
+Key points:
+
+- `id` — lowercase hyphenated slug, unique across `ci/profiles/`.
+- `templateDir` — must match the directory name of an existing template
+  (e.g. `web-server`).
+- `addons` — each entry must be a valid addon slug (e.g. `v-postgres`,
+  `github-setup`, `docker`). The profile exercises the addon combination in
+  CI, so the addons must be mutually compatible (check `incompatibleWith`
+  in the addon manifests).
+- A new profile requires a new file in `ci/profiles/`; keep one profile per
+  realistic combination rather than enumerating every permutation.
+
 Run `python scripts/ci/generate-matrix.py --layer validate-profiles` before pushing.
 
 ## Review bar
