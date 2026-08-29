@@ -8,8 +8,8 @@ pub fn tensor_to_scatter(values []f64) &plot.Plot {
 	x := vtl.seq[f64](values.len)
 	mut plt := plot.Plot.new()
 	plt.scatter(
-		x:    x.to_array()
-		y:    values
+		x: x.to_array()
+		y: values
 		mode: 'lines+markers'
 	)
 	plt.layout(title: 'VTL → VSL plot bridge')
