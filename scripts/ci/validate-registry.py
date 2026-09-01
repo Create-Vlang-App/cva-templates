@@ -206,6 +206,23 @@ def validate_on_disk(registry: dict) -> list[str]:
                 f"addon {name}: missing template/ overlay directory "
                 "(extensions must use extensions/<slug>/template/)"
             )
+            continue
+        # 110: reject flat src/*.v with `module main` for library extensions.
+        # Library/domain extensions must use extensions/<slug>/template/src/<slug>/mod.v or
+        # named module subdirs (e.g. plotting/, vsl_bridge/) not flat src/*.v with module main.
+        overlay = path / "template"
+        for vfile in overlay.rglob("*.v"):
+            try:
+                content = vfile.read_text(encoding="utf-8", errors="ignore")
+            except Exception:
+                continue
+            rel = vfile.relative_to(overlay)
+            if rel.parts and rel.parts[0] == "src" and "module main" in content:
+                errors.append(
+                    f"addon {name}: invalid V module layout {rel} contains 'module main' — "
+                    "use extensions/<slug>/template/src/<slug>/mod.v or a named module dir (e.g. plotting/) not flat src/*.v with module main"
+                )
+                break
 
     return errors
 
