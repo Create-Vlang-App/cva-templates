@@ -296,6 +296,20 @@
       ]
     },
     {
+      "name": "veb-static-files",
+      "description": "Static dir convention and helper for web-server (veb)",
+      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/veb-static-files",
+      "kind": "addon",
+      "tags": [
+        "web",
+        "veb",
+        "static"
+      ],
+      "compatibleWith": [
+        "web-server"
+      ]
+    },
+    {
       "name": "vsl-classical-ml",
       "description": "Classical ML smoke (linear regression style) on vsl-starter",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/vsl-classical-ml",
