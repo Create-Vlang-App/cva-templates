@@ -235,6 +235,17 @@
       ]
     },
     {
+      "name": "v-env-example",
+      "description": "Cross-cutting .env.example standardization and docs snippet",
+      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/v-env-example",
+      "kind": "addon",
+      "tags": [
+        "env",
+        "docs",
+        "config"
+      ]
+    },
+    {
       "name": "v-fmt-vet",
       "description": "Format and vet hooks (pre-commit + Makefile targets)",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/v-fmt-vet",
