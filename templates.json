@@ -189,6 +189,16 @@
   ],
   "addons": [
     {
+      "name": "development-container",
+      "description": "Devcontainer with V toolchain via setup-v patterns",
+      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/development-container",
+      "kind": "addon",
+      "tags": [
+        "devcontainer",
+        "wave-1"
+      ]
+    },
+    {
       "name": "github-setup",
       "description": "GitHub Actions CI using vlang/setup-v",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/github-setup",
@@ -200,6 +210,20 @@
       ]
     },
     {
+      "name": "rxv-operators",
+      "description": "Reactive operator chain (filter/map/reduce) beyond hello-world rxv",
+      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/rxv-operators",
+      "kind": "addon",
+      "tags": [
+        "reactive",
+        "rxv",
+        "domain"
+      ],
+      "compatibleWith": [
+        "rxv-starter"
+      ]
+    },
+    {
       "name": "v-docker",
       "description": "Dockerfile and docker-compose for V apps",
       "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/v-docker",
@@ -208,6 +232,50 @@
         "docker",
         "wave-1",
         "deploy"
+      ]
+    },
+    {
+      "name": "v-fmt-vet",
+      "description": "Format and vet hooks (pre-commit + Makefile targets)",
+      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/v-fmt-vet",
+      "kind": "addon",
+      "tags": [
+        "tooling",
+        "wave-1",
+        "fmt",
+        "vet"
+      ]
+    },
+    {
+      "name": "v-postgres",
+      "description": "Postgres compose overlay and environment sample",
+      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/v-postgres",
+      "kind": "addon",
+      "tags": [
+        "database",
+        "wave-1",
+        "postgres"
+      ],
+      "compatibleWith": [
+        "web-server",
+        "cli-app",
+        "systems-app"
+      ]
+    },
+    {
+      "name": "v-redis",
+      "description": "Redis client stub and compose sample for web-server/systems apps",
+      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/v-redis",
+      "kind": "addon",
+      "tags": [
+        "database",
+        "redis",
+        "cache"
+      ],
+      "compatibleWith": [
+        "web-server",
+        "cli-app",
+        "systems-app"
       ]
     },
     {
@@ -228,41 +296,18 @@
       ]
     },
     {
-      "name": "v-postgres",
-      "description": "Postgres compose overlay and environment sample",
-      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/v-postgres",
+      "name": "vsl-classical-ml",
+      "description": "Classical ML smoke (linear regression style) on vsl-starter",
+      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/vsl-classical-ml",
       "kind": "addon",
       "tags": [
-        "database",
-        "wave-1",
-        "postgres"
+        "scientific",
+        "ml",
+        "vsl",
+        "domain"
       ],
       "compatibleWith": [
-        "web-server",
-        "cli-app",
-        "systems-app"
-      ]
-    },
-    {
-      "name": "v-fmt-vet",
-      "description": "Format and vet hooks (pre-commit + Makefile targets)",
-      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/v-fmt-vet",
-      "kind": "addon",
-      "tags": [
-        "tooling",
-        "wave-1",
-        "fmt",
-        "vet"
-      ]
-    },
-    {
-      "name": "development-container",
-      "description": "Devcontainer with V toolchain via setup-v patterns",
-      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/development-container",
-      "kind": "addon",
-      "tags": [
-        "devcontainer",
-        "wave-1"
+        "vsl-starter"
       ]
     },
     {
@@ -273,21 +318,6 @@
       "tags": [
         "scientific",
         "plot",
-        "vsl",
-        "domain"
-      ],
-      "compatibleWith": [
-        "vsl-starter"
-      ]
-    },
-    {
-      "name": "vsl-classical-ml",
-      "description": "Classical ML smoke (linear regression style) on vsl-starter",
-      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/vsl-classical-ml",
-      "kind": "addon",
-      "tags": [
-        "scientific",
-        "ml",
         "vsl",
         "domain"
       ],
@@ -323,20 +353,6 @@
       ],
       "compatibleWith": [
         "vtl-starter"
-      ]
-    },
-    {
-      "name": "rxv-operators",
-      "description": "Reactive operator chain (filter/map/reduce) beyond hello-world rxv",
-      "url": "https://github.com/Create-Vlang-App/cva-templates?subdir=extensions/rxv-operators",
-      "kind": "addon",
-      "tags": [
-        "reactive",
-        "rxv",
-        "domain"
-      ],
-      "compatibleWith": [
-        "rxv-starter"
       ]
     }
   ]
