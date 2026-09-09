@@ -78,10 +78,9 @@ jobs:
           persist-credentials: false
 
       - name: Set up V
-        uses: vlang/setup-v@2c790c60223ed135f6949d1358675e4fd004b801 # v1
+        uses: vlang/setup-v@2af0f76cef8d32cea291b7ee9a259c37336a6441
         with:
           stable: true
-          cache: true
 
       - name: Cache V modules
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
