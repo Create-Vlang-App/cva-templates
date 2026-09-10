@@ -78,10 +78,10 @@ jobs:
           persist-credentials: false
 
       - name: Set up V
-        uses: vlang/setup-v@2c790c60223ed135f6949d1358675e4fd004b801 # v1
+        uses: vlang/setup-v@2af0f76cef8d32cea291b7ee9a259c37336a6441 # v1
         with:
-          stable: true
-          cache: true
+          # Pinned via .v-version; do not float stable (see #119).
+          version-file: .v-version
 
       - name: Cache V modules
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
@@ -114,8 +114,10 @@ jobs:
         env:
           CI: "true"
           CVA_SKIP_GIT: "1"
+          # Pass the addon URL via env, not inline expansion (see #121).
+          ADDON_URL: ${{ matrix.cell.addons[0] }}
         run: |
           python scripts/ci/run-scaffold-check.py \
             --template-url "${{ matrix.cell.templateUrl }}" \
-            --addon-url "${{ matrix.cell.addons[0] }}" \
+            --addon-url "$ADDON_URL" \
             --workdir "${{ runner.temp }}/cva-l2"
