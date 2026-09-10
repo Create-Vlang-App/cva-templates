@@ -67,11 +67,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Set up V
-        uses: vlang/setup-v@2af0f76cef8d32cea291b7ee9a259c37336a6441 # v1
-        with:
-          # Pinned via .v-version; do not float stable (see #119).
-          version-file: .v-version
+      - name: Set up V (prebuilt, pinned)
+        # setup-v always builds from source on a cold cache (its dist
+        # predates prebuilt support) and upstream source builds are broken
+        # by vc/V skew — use the checksum-verified prebuilt instead (#119).
+        run: bash scripts/ci/install-v-prebuilt.sh
 
       - name: Cache V modules
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
