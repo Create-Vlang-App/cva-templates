@@ -77,11 +77,11 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Set up V
-        uses: vlang/setup-v@2c790c60223ed135f6949d1358675e4fd004b801 # v1
-        with:
-          stable: true
-          cache: true
+      - name: Set up V (prebuilt, pinned)
+        # setup-v always builds from source on a cold cache (its dist
+        # predates prebuilt support) and upstream source builds are broken
+        # by vc/V skew — use the checksum-verified prebuilt instead (#119).
+        run: bash scripts/ci/install-v-prebuilt.sh
 
       - name: Cache V modules
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
@@ -114,11 +114,21 @@ jobs:
         env:
           CI: "true"
           CVA_SKIP_GIT: "1"
+          # Space-joined addon list via env: the value is data, never
+          # re-parsed as script; `set -f` also disables glob expansion
+          # of URLs during splitting (see #121).
+          ADDON_URLS: ${{ join(matrix.cell.addons, ' ') }}
         run: |
           ADDON_ARGS=()
-          for url in ${{ join(matrix.cell.addons, ' ') }}; do
+          set -f
+          # Deliberately unquoted: split env value on whitespace (URLs
+          # never contain spaces). No globbing (set -f), no command
+          # substitution (never performed on variable expansion).
+          # shellcheck disable=SC2086
+          for url in $ADDON_URLS; do
             ADDON_ARGS+=(--addon-url "$url")
           done
+          set +f
           python scripts/ci/run-scaffold-check.py \
             --template-url "${{ matrix.cell.templateUrl }}" \
             --workdir "${{ runner.temp }}/cva-l3" \

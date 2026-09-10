@@ -50,11 +50,11 @@ jobs:
       - name: Validate curated CI profiles
         run: python scripts/ci/generate-matrix.py --layer validate-profiles
 
-      - name: Template compile smoke
-        uses: vlang/setup-v@2c790c60223ed135f6949d1358675e4fd004b801 # v1
-        with:
-          stable: true
-          cache: true
+      - name: Template compile smoke (prebuilt V, pinned)
+        # setup-v always builds from source on a cold cache (its dist
+        # predates prebuilt support) and upstream source builds are broken
+        # by vc/V skew — use the checksum-verified prebuilt instead (#119).
+        run: bash scripts/ci/install-v-prebuilt.sh
 
       - name: Cache V modules
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
