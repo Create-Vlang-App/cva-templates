@@ -29,4 +29,4 @@ Python helpers (`scripts/ci/`) run in GitHub Actions with `contents: read` only.
 
 ## Dependency audit
 
-Track V compiler updates via `vlang/setup-v` stable channel. Scientific templates (vsl/vtl) may add module deps — document CPU-only defaults and optional CUDA as out-of-scope for CVA CI (#29).
+Bank CI tracks V `master` via `vlang/setup-v` (no pinned compiler to audit — audit the pinned `setup-v` action SHA instead). Scientific templates (vsl/vtl) may add module deps — document CPU-only defaults and optional CUDA as out-of-scope for CVA CI (#29).

@@ -12,7 +12,7 @@ Ran per §14 / issue #111 checklist:
 ```bash
 # CVA org packaging repos
 gh api repos/Create-Vlang-App/aur-package/contents --jq '.[].name'
-# → .github, .v-version, README.md, create-awesome-vlang-app, create-awesome-vlang-app-bin
+# → .github, README.md, create-awesome-vlang-app, create-awesome-vlang-app-bin (.v-version removed; V tracks master, no pin)
 
 gh api repos/Create-Vlang-App/aur-package/contents/create-awesome-vlang-app/PKGBUILD --jq .content | base64 -d | grep pkgver
 # → pkgver=0.1.0 (matches tag create-vlang-app@0.1.0)
