@@ -67,11 +67,14 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Set up V (prebuilt, pinned)
-        # setup-v always builds from source on a cold cache (its dist
-        # predates prebuilt support) and upstream source builds are broken
-        # by vc/V skew — use the checksum-verified prebuilt instead (#119).
-        run: bash scripts/ci/install-v-prebuilt.sh
+      - name: Set up V (master, latest)
+        # CVA tracks the latest master of vlang/v — no pinned compiler.
+        # check-latest forces setup-v to resolve the newest master commit
+        # even when its build cache is warm.
+        uses: vlang/setup-v@2af0f76cef8d32cea291b7ee9a259c37336a6441
+        with:
+          version: master
+          check-latest: true
 
       - name: Cache V modules
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0

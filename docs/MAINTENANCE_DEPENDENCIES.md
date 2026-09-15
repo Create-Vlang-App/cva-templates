@@ -41,7 +41,7 @@ Key V-native notes:
 
 - Module layout: `v.mod` at template root declares `Module { name, version, dependencies }`. See [AUTHORING.md](./AUTHORING.md).
 - Domain starters pin scientific libs: `vsl-starter` → `vsl@v0.2.0-beta.1`, `vtl-starter` → `vtl@v0.2.0-beta.1` (which transitively pulls `vsl`), `rxv-starter` → `rxv@0.1.0`. See `knowledge/create-vlang-app-v-ecosystem-notes.md`.
-- V compiler itself is pinned via `vlang/setup-v` in CI (`scripts/ci` workflows). The `.v-version` file at repo root (if present) is the source of truth; otherwise CI uses `stable: true` resolving to the latest stable tag (currently `0.5.2`).
+- V compiler tracks the latest `master` of [`vlang/v`](https://github.com/vlang/v/tree/master) via `vlang/setup-v` in CI (bank workflows): `version: master` with `check-latest: true`, so every run resolves the newest `master` commit. There is no `.v-version` pin.
 
 ---
 
@@ -65,19 +65,14 @@ Key V-native notes:
 
 **Symptom:** `v vet` / `v fmt` / `v test` fails with syntax or `C.open` signature errors that previously passed (e.g. `vlib/os/filelock/lib_nix.c.v:7:6: error: C function C.open was already declared`).
 
-**Common cause:** Upstream V breaking change in `vlang/v`. `vlang/setup-v` builds V from source; a bad stable release or bootstrap toolchain change can break all L1–L3 jobs.
+**Common cause:** Upstream V breaking change in `vlang/v`. Bank CI tracks `master` by policy, so a bad upstream commit breaks all L1–L3 jobs by design (fail fast on upstream regressions).
 
-**Fix:**
+**Fix (fix forward — do NOT pin to an old compiler):**
 
-1. Check if `vlang/v` had a recent breaking change: `gh api repos/vlang/v/commits --jq '.[0].commit.message'`.
-2. Pin CI to last known good V version:
-   ```yaml
-   - uses: vlang/setup-v@v1
-     with:
-       version: weekly.2026.08  # or explicit 0.5.2
-   ```
+1. Identify the upstream commit: `gh api repos/vlang/v/commits --jq '.[0].commit.message'`.
+2. Adapt our templates/extensions to the new V behavior; verify `v fmt -verify` / `v vet` / `v test` locally against the latest `master`.
+3. If the breakage is an upstream bug, file it at `vlang/v` and link it from the tracking issue.
    Label the tracking issue `bug`, `ci`, `v-compiler`.
-3. Reference prior handling: weekly pin pattern used by `vtl` when stable broke.
 
 ### 2.3 `v.mod` merge conflicts (core)
 
@@ -93,7 +88,7 @@ Key V-native notes:
 
 ### 2.4 V toolchain version in templates
 
-Templates declare a minimal V version implicitly via CI `vlang/setup-v`. If bumping a domain dep requires newer V syntax, update the CI `version-file: .v-version` and verify `v fmt -verify` / `v vet` still pass locally.
+Bank CI validates templates against the latest V `master`. Scaffolded projects still default to `stable: true` in their own `ci.yml` (see the `github-setup` template) — if a domain dep requires syntax newer than stable provides, document it in the template README and verify `v fmt -verify` / `v vet` still pass locally against `master`.
 
 ---
 
@@ -203,7 +198,7 @@ v version
 ## 7. Checklist
 
 - [ ] The target version tag exists for every referenced V module (`vsl`, `vtl`, `rxv`).
-- [ ] V compiler version (`setup-v`) still builds — no `C.open` or bootstrap regression.
+- [ ] Latest V `master` (`setup-v`) still builds the touched templates — no `C.open` or bootstrap regression.
 - [ ] The change is scoped to the affected template/extension.
 - [ ] Local validation passes (`python3 scripts/ci/validate-registry.py`, `v vet`, `v test`).
 - [ ] Full L0–L3 matrix passes for affected templates (or `gh run list --repo Create-Vlang-App/cva-templates` green).
