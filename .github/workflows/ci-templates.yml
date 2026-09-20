@@ -71,7 +71,7 @@ jobs:
         # CVA tracks the latest master of vlang/v — no pinned compiler.
         # check-latest forces setup-v to resolve the newest master commit
         # even when its build cache is warm.
-        uses: vlang/setup-v@2af0f76cef8d32cea291b7ee9a259c37336a6441
+        uses: vlang/setup-v@f39f0937037ba37f04636f065002867f28c51cc8
         with:
           version: master
           check-latest: true
