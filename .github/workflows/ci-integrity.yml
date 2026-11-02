@@ -52,12 +52,9 @@ jobs:
 
       - name: Template compile smoke (V master, latest)
         # CVA tracks the latest master of vlang/v — no pinned compiler.
-        # check-latest forces setup-v to resolve the newest master commit
-        # even when its build cache is warm.
         uses: vlang/setup-v@f39f0937037ba37f04636f065002867f28c51cc8
         with:
-          version: master
-          check-latest: true
+          version: 78869311b51c76ddb4c3d2ed17e8a7733d8d5979
 
       - name: Cache V modules
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
